@@ -1,6 +1,7 @@
 name: build-test-deploy
-on: push
-
+on:
+  issue_comment:
+    types: [created, deleted]
 jobs:
   test:
     runs-on: ubuntu-latest
