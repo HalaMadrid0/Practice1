@@ -1,3 +1,4 @@
+---
 name: build-test-deploy
 on: push
 jobs:
@@ -5,40 +6,40 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-     - name: get our code 
-       uses: actions/checkout@v3
-     - name: install deps
-       run: npm ci 
-     - name: test
-       run: npm run test
+      - name: get our code
+        uses: actions/checkout@v3
+      - name: install deps
+        run: npm ci
+      - name: test
+        run: npm run test
   lint:
     runs-on: ubuntu-latest
-     steps:  
-     - name: get our code 
-       uses: actions/checkout@v3
-     - name: install deps
-       run: npm ci 
-     - name: test 
-     - name: lint
-       run: nmp run lint 
+    steps:
+      - name: get our code
+        uses: actions/checkout@v3
+      - name: install deps
+        run: npm ci
+      - name: test
+      - name: lint
+        run: nmp run lint
   build:
     needs: test
     runs-on: ubuntu-latest
-     steps: 
-     - name: get our code 
-       uses: actions/checkout@v3
-     - name: install deps
-       run: npm ci
-     - name: build
-       run: npm run build
+    steps:
+      - name: get our code
+        uses: actions/checkout@v3
+      - name: install deps
+        run: npm ci
+      - name: build
+        run: npm run build
   deploy:
     needs: build
     runs-on: ubuntu-latest
-     steps: 
-     - name: get our code 
-       uses: actions/checkout@v3
-     - name: install deps
-       run: npm ci
-     - name: deploy
-       run: echo "deploying..........."
+    steps:
+      - name: get our code
+        uses: actions/checkout@v3
+      - name: install deps
+        run: npm ci
+      - name: deploy
+        run: echo "deploying..........."
       
