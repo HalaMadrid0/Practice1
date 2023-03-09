@@ -1,0 +1,10 @@
+name: second-workslow
+on:
+  issue_comment:
+    types: [created, deleted]
+jobs:
+  outbut:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the outbut
+        run: echo "${{ toJSON(github) }}"
