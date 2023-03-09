@@ -1,4 +1,4 @@
-name: second-workslow
+name: second-workflow
 on:
   issue_comment:
     types: [created, deleted]
@@ -6,5 +6,7 @@ jobs:
   outbut:
     runs-on: ubuntu-latest
     steps:
+      - name: get-code
+        uses: actions/checkout@v3
       - name: print the outbut
         run: echo "${{ toJSON(github) }}"
